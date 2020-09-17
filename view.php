@@ -58,10 +58,11 @@
                     </thead>
                     <tbody>
                         <?php
-                        if ($con = mysqli_connect("studentregistration.cfnqdksdfaiq.us-east-1.rds.amazonaws.com", "admin", "admin123", "student_registration", 3306)) {
-   echo "Database Connection SuccessFully.";
+                        $con = mysqli_connect("studentregistration.cfnqdksdfaiq.us-east-1.rds.amazonaws.com", "admin", "admin123", "student_registration", 3306);
+                        if ($con) {
+                            //echo "Database Connection SuccessFully.";
                         } else {
-                        die("Database Connection SuccessFully.");
+                        die("Database Connection Failed");
                         }
 
                         $query = "SELECT * FROM `studentdetails`";

@@ -57,14 +57,15 @@
             }
 
             if (!isset($err_address) && !isset($err_dob) && !isset($err_loc) && !isset($err_gender) && !isset($err_email) && !isset($err_fname) && !isset($err_lname) && !isset($err_mname) && !isset($err_phno) && !isset($err_roll) && !isset($err_state) && !isset($err_zipcode)) {
-                echo "Safe Condition";
                 
-                $con = mysqli_connect("studentregistration.cfnqdksdfaiq.us-east-1.rds.amazonaws.com", "admin", "admin123", "student_registration", 3306);
-                if ($con) {
-                    echo "Database Connection SuccessFully.";
-                } else {
-                    die("Database Connection Failed.");
-                }
+                
+                $con = mysqli_connect('studentregistration.cfnqdksdfaiq.us-east-1.rds.amazonaws.com', "admin", "admin123", "student_registration", 3306);
+            
+                        if ($con) {
+                            //echo "Database Connection SuccessFully.";
+                        } else {
+                        die("Database Connection Failed");
+                        }
 
                 $query = "INSERT INTO `studentdetails`(`stphno`, `fname`, `mname`, `lname`, `roll`, `address`, `gender`, `city`, `state`, `country`, `zipcode`, `birthdate`, `mail`) VALUES ('" . $phno . "','" . $fname . "','" . $mname . "','" . $lname . "','" . $roll . "','" . $address . "','" . $gender . "','" . $city . "','" . $state . "','" . $country . "','" . $zipcode . "','" . $dob . "','" . $email . "')";
                 echo $query;
@@ -251,10 +252,11 @@
                                     </select>
                                     <select name="country" class="input" style="width: 33%">
                                         <option value="">Select Your Country</option>
-                                        <option>Surat</option>
-                                        <option >Baroda</option>
-                                        <option >Bombay</option>
-                                        <option >Ahmedabad</option>
+                                        <option>Bangladesh</option>
+                                        <option>Japan</option>
+                                        <option >Pakistan</option>
+                                        <option >China</option>
+                                        <option>India</option>
                                     </select>
                                     <label class="ferr"><?php
                                         if (isset($err_loc)) {
